@@ -1,0 +1,28 @@
+- name: Download official Skype repository file
+  get_url:
+    url: https://repo.skype.com/rpm/stable/skype-stable.repo
+    dest: /etc/yum.repos.d/skype-stable.repo
+    mode: '0644'
+
+- name : Install internet tools
+  dnf:
+    name:
+      - firefox
+      - qbittorrent
+      - telegram-desktop
+      - uget
+      - skypeforlinux
+      - tor
+      - wget
+      - nethogs
+    state: latest
+  retries: 3
+  delay: 5
+  register: result
+  until: result is succeeded
+
+- name: Make sure tor service is running
+  systemd:
+    state: started
+    enabled: yes
+    name: tor
