@@ -1,1 +1,2 @@
 - include: 'codecs.yml'
+- include: 'player.yml'
