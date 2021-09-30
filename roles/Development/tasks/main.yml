@@ -1,0 +1,18 @@
+- name: Copy Visual Studio Code repo file
+  copy:
+    src: files/vscode.repo
+    dest: /etc/yum.repos.d/vscode.repo
+    owner: root
+    group: root
+    mode: '0755'
+    backup: yes
+
+- name : Install Visual Studio Code IDE
+  dnf:
+    name:
+      - code
+    state: latest
+  retries: 3
+  delay: 5
+  register: result
+  until: result is succeeded
