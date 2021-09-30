@@ -1,9 +1,12 @@
-- name : Install tools
+- name : Install office tools
   dnf:
     name:
       - evince
       - evince-nautilus
       - evince-devel
+      - libreoffice-core
+      - libreoffice-writer
+      - libreoffice-calc
     state: latest
   retries: 3
   delay: 5
