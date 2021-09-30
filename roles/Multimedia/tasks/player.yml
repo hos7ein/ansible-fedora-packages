@@ -1,0 +1,9 @@
+- name : Install multimedia player
+  dnf:
+    name:
+      - smplayer
+      - vlc
+      - amarok
+      - clementine
+      - elisa-player
+    state: latest
