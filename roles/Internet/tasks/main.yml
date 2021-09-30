@@ -4,6 +4,15 @@
     dest: /etc/yum.repos.d/skype-stable.repo
     mode: '0644'
 
+- name: Copy google chrome repo file
+  copy:
+    src: files/google-chrome.repo
+    dest: /etc/yum.repos.d/google-chrome.repo
+    owner: root
+    group: root
+    mode: '0755'
+    backup: yes
+
 - name : Install internet tools
   dnf:
     name:
@@ -15,6 +24,7 @@
       - tor
       - wget
       - nethogs
+      - google-chrome
     state: latest
   retries: 3
   delay: 5
