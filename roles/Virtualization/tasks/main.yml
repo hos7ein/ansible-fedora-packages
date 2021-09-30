@@ -1,0 +1,32 @@
+- name: Download official Docker CE repository file
+  get_url:
+    url: https://download.docker.com/linux/fedora/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+    mode: '0644'
+
+- name : Install virtualization tools
+  dnf:
+    name:
+      - '@virtualization' # KVM virtualization tools
+      - docker-ce         # Docker CE
+      - docker-ce-cli
+      - containerd.io
+    state: latest
+  retries: 3
+  delay: 5
+  register: result
+  until: result is succeeded
+
+- name: Make sure libvirtd service is running
+  systemd:
+    state: started
+    enabled: yes
+    name: libvirtd
+
+- name: Make sure docker service is running
+  systemd:
+    state: started
+    enabled: yes
+    name: docker
+
+
