@@ -25,6 +25,11 @@
       - wget
       - nethogs
       - google-chrome
+      - nmap
+      - mtr
+      - telnet
+      - tcpdump
+      - curl
     state: latest
   retries: 3
   delay: 5
