@@ -7,10 +7,11 @@
     mode: '0755'
     backup: yes
 
-- name : Install Visual Studio Code IDE
+- name : Install development tools
   dnf:
     name:
-      - code
+      - code # Visual Studio Code IDE
+      - git
     state: latest
   retries: 3
   delay: 5
