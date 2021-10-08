@@ -35,20 +35,12 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      - name: Perform integration testing with ansible-test
-        uses: ansible-community/ansible-test-gh-action@release/v1
-        with:
-          ansible-core-version: stable-2.11
-          pre-test-cmd: echo This runs before the ansible-test invocation
-          python-version: 3.9
-          target-python-version: 3.9
-          testing-type: integration
-          test-deps: ansible.netcommon
       - name: Perform sanity testing with ansible-test
         uses: ansible-community/ansible-test-gh-action@release/v1
         with:
           ansible-core-version: stable-2.11
           testing-type: sanity
+
       - name: Perform unit testing with ansible-test
         uses: ansible-community/ansible-test-gh-action@release/v1
         with:
