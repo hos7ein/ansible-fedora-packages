@@ -43,5 +43,5 @@ jobs:
           python -m pip install --upgrade ansible ansible-lint
           
       - name: ansible-lint
-        run: ansible-lint .
+        run: ansible-lint -p main-playbook.yml
           
