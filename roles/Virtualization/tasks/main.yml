@@ -11,7 +11,7 @@
       - docker-ce         # Docker CE
       - docker-ce-cli
       - containerd.io
-    state: latest
+    state: present
   retries: 3
   delay: 5
   register: result
