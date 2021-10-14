@@ -30,7 +30,7 @@
       - telnet
       - tcpdump
       - curl
-    state: latest
+    state: present
   retries: 3
   delay: 5
   register: result
