@@ -35,9 +35,3 @@
   delay: 5
   register: result
   until: result is succeeded
-
-- name: Make sure tor service is running
-  systemd:
-    state: started
-    enabled: yes
-    name: tor
