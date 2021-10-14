@@ -24,5 +24,5 @@ jobs:
       run: dnf install -y ansible
     - name: What ansible version do we have
       run: ansible --version
-    - name: deploy playbook
+    - name: Deploy ansible playbook
       run: ansible-playbook main-playbook.yml
