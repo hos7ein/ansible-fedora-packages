@@ -16,17 +16,3 @@
   delay: 5
   register: result
   until: result is succeeded
-
-- name: Make sure libvirtd service is running
-  systemd:
-    state: started
-    enabled: yes
-    name: libvirtd
-
-- name: Make sure docker service is running
-  systemd:
-    state: started
-    enabled: yes
-    name: docker
-
-
