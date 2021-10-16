@@ -3,11 +3,11 @@
     name:
       - transcode
       - lame
-      - xine-lib 
+      - xine-lib
       - gstreamer-plugins-ugly
       - gstreamer-ffmpeg
       - libdvdread
-      - libdvdnav 
+      - libdvdnav
       - lsdvd
       - ffmpeg
       - xvidcore

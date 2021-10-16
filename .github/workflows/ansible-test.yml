@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: fedora:latest
-    steps:  
+    steps:
     - uses: actions/checkout@v2
     - name: Install ansible
       run: dnf install -y ansible
