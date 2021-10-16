@@ -1,0 +1,13 @@
+- name : Install wireless driver
+  dnf:
+    name:
+      - kernel-devel
+      - dkms
+      - broadcom-wl
+      - kmod-wl
+      - akmod-wl
+    state: present
+  retries: 3
+  delay: 5
+  register: result
+  until: result is succeeded
