@@ -13,12 +13,22 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  ansible-lint:
+    runs-on: ubuntu-latest
+    steps:
+    # Important: This sets up your GITHUB_WORKSPACE environment variable
+    - uses: actions/checkout@v2
+    - name: Lint Ansible Playbook
+      uses: ansible/ansible-lint-action@master
+      with:
+        targets: ""
+
   # This workflow contains a single job called "build"
   build:
     runs-on: ubuntu-latest
     container:
       image: fedora:latest
-    steps:  
+    steps:
     - uses: actions/checkout@v2
     - name: Install ansible
       run: dnf install -y ansible
