@@ -29,9 +29,12 @@ jobs:
       image: fedora:latest
     steps:
     - uses: actions/checkout@v2
+
     - name: Install ansible
       run: dnf install -y ansible
+
     - name: What ansible version do we have
       run: ansible --version
+      
     - name: Deploy ansible playbook
       run: ansible-playbook main-playbook.yml
