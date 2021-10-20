@@ -1,5 +1,5 @@
 # ansible-fedora-packages
-Install necessary packages in Fedora linux
+Install necessary packages on Fedora Linux
 
 [![CI](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ansible-test.yml/badge.svg?branch=main)](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ansible-test.yml)
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
