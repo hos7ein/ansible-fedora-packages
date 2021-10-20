@@ -23,7 +23,6 @@ jobs:
       with:
         targets: ""
 
-  # This workflow contains a single job called "build"
   build:
     runs-on: ubuntu-latest
     container:
