@@ -35,6 +35,6 @@ jobs:
 
     - name: What ansible version do we have
       run: ansible --version
-      
+
     - name: Deploy ansible playbook
       run: ansible-playbook main-playbook.yml
