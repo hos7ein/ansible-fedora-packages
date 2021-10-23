@@ -11,6 +11,8 @@
       - rsync
       - bash-completion
       - dnf-plugins-core
+      - ImageMagick
+      - ocrmypdf
     state: present
   retries: 3
   delay: 5
