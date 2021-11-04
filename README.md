@@ -10,4 +10,4 @@ Install necessary packages on Fedora Linux
 ![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)
 ![Ansible](https://img.shields.io/badge/ansible-%231A1918.svg?style=for-the-badge&logo=ansible&logoColor=white)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/hos7ein/)
-[![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://fedorafans.com.com)
+[![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://fedorafans.com)
