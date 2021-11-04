@@ -19,7 +19,7 @@
       - gstreamer1-plugins-bad-freeworld
       - gstreamer1-plugins-bad-free-extras
       - vcdimager
-      - normalize
+      #- normalize
       - xine
       - gstreamer1-plugins-base
       - gstreamer1-plugins-good
