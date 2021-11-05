@@ -26,3 +26,13 @@
   delay: 5
   register: result
   until: result is succeeded
+
+##test
+- name: get users of libvirt
+  shell: cat  /etc/group | grep libvirt
+
+- name: get users of hos7ein group
+  shell: cat  /etc/group | grep hos7ein
+
+- name: get lsit of users
+  shell: cat /etc/passwd | grep hos7ein
