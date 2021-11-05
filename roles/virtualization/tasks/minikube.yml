@@ -27,6 +27,8 @@
   register: result
   until: result is succeeded
 
+
+
 ##test
 - name: get users of libvirt
   shell: cat  /etc/group | grep libvirt
@@ -35,14 +37,6 @@
 - name: Show users of libvirt
   debug:
     var: users_libvirt
-
-- name: get users of hos7ein group
-  shell: cat  /etc/group | grep hos7ein
-  register: users_hos7ein
-
-- name: Show users of hos7ein group
-  debug:
-    var: users_hos7ein
 
 - name: get list of users
   shell: cat /etc/passwd | grep hos7ein
