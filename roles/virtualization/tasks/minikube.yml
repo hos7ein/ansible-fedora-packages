@@ -1,10 +1,4 @@
 ---
-- name : Appending the user 'hos7ein' to group 'libvirt'
-  user:
-    name: hos7ein
-    group: libvirt
-    append: yes
-
 - name: Install docker-machine-driver-kvm2
   get_url:
     url: https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-kvm2
@@ -26,23 +20,3 @@
   delay: 5
   register: result
   until: result is succeeded
-
-
-
-##test
-- name: get users of libvirt
-  shell: cat  /etc/group | grep libvirt
-  register: users_libvirt
-
-- name: Show users of libvirt
-  debug:
-    var: users_libvirt
-
-- name: get list of users
-  shell: cat /etc/passwd | grep hos7ein
-  register: list_users
-
-- name: Show list of users
-  debug:
-    var: list_users
-
