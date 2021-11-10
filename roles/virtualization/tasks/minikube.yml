@@ -24,8 +24,7 @@
 - name: Install kubecolor
   unarchive:
     src: https://github.com/hidetatz/kubecolor/releases/download/v0.0.20/kubecolor_0.0.20_Linux_x86_64.tar.gz
-    dest: /usr/local/bin/kubecolor
-    creates: /usr/local/bin
+    dest: /usr/local/bin
     remote_src: yes
     mode: 0555
     extra_opts:
