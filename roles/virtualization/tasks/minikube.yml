@@ -30,3 +30,27 @@
     mode: 0555
     extra_opts:
     - [--strip-components=1]
+
+- name: get list of file
+  shell: ls -lh /usr/local/bin
+  register: ls_files
+
+- name: list file
+  debug:
+    var: ls_files
+
+- name: Add kubecolor to bashrc file
+  lineinfile:
+    path: /home/hos7ein/.bashrc
+    line: '{{item}}'
+  with_items:
+    - alias kubectl=kubecolor
+    - complete -o default -F __start_kubectl kubecolor
+
+- name: show bashrc file
+  shell: cat /home/hos7ein/.bashrc
+  register: bashrc_files
+
+- name: bashrc file
+  debug:
+    var: bashrc_files
