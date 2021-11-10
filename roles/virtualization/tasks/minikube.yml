@@ -42,7 +42,7 @@
 - name: Add kubecolor to bashrc file
   lineinfile:
     path: /home/hos7ein/.bashrc
-    line: '{{item}}'
+    line: '{{ item }}'
   with_items:
     - alias kubectl=kubecolor
     - complete -o default -F __start_kubectl kubecolor
