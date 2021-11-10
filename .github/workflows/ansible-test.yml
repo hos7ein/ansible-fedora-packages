@@ -13,7 +13,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  ansible-lint:
+  job1:
+    name: ansible-lint
     runs-on: ubuntu-latest
     steps:
     # Important: This sets up your GITHUB_WORKSPACE environment variable
@@ -23,7 +24,10 @@ jobs:
       with:
         targets: ""
 
-  build:
+  job2:
+    name: build
+    if: ${{ always() }}
+    needs: [job1]
     runs-on: ubuntu-latest
     container:
       image: fedora:latest
