@@ -39,6 +39,10 @@
   debug:
     var: ls_files
 
+- name: create bashrc file
+  shell: touch /home/.bashrc
+  register: touch_files
+
 - name: Add kubecolor to bashrc file
   lineinfile:
     path: /home/.bashrc
