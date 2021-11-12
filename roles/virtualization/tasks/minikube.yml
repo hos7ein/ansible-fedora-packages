@@ -31,30 +31,19 @@
       - "--add-file"
       - "kubecolor"
 
-- name: get list of file
-  shell: ls -lh /usr/local/bin
-  register: ls_files
-
-- name: list file
-  debug:
-    var: ls_files
-
-- name: create bashrc file
-  shell: touch /home/.bashrc
-  register: touch_files
+- name: Check that user exists
+  shell: "grep {{ username }} /etc/passwd"
+  ignore_errors: yes
+  register: userexist
 
 - name: Add kubecolor to bashrc file
   lineinfile:
-    path: /home/.bashrc
-    line: '{{ item }}'
+    path: "/home/{{ username }}/.bashrc"
+    line: "{{ item }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644
   with_items:
     - alias kubectl=kubecolor
     - complete -o default -F __start_kubectl kubecolor
-
-- name: show bashrc file
-  shell: cat /home/.bashrc
-  register: bashrc_files
-
-- name: bashrc file
-  debug:
-    var: bashrc_files
+  when: userexist.rc == 0
