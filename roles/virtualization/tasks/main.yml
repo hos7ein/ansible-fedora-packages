@@ -3,6 +3,10 @@
     url: https://download.docker.com/linux/fedora/docker-ce.repo
     dest: /etc/yum.repos.d/docker-ce.repo
     mode: '0644'
+  retries: 5
+  delay: 5
+  register: download_docker_ce_repo
+  until: download_docker_ce_repo is succeeded
 
 - name : Install virtualization tools
   dnf:
