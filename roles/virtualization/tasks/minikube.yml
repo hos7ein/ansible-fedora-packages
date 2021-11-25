@@ -16,14 +16,22 @@
     url: https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-kvm2
     dest: /usr/local/bin/docker-machine-driver-kvm2
     mode: '0555'
+  retries: 5
+  delay: 5
+  register: download_docker_machine_driver_kvm2
+  until: download_docker_machine_driver_kvm2 is succeeded
 
 - name: Install Minikube
   get_url:
     url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
     dest: /usr/local/bin/minikube
     mode: '0555'
+  retries: 5
+  delay: 5
+  register: download_minikube
+  until: download_minikube is succeeded
 
-- name : Install kubectl
+- name: Install kubectl
   dnf:
     name:
       - kubernetes-client

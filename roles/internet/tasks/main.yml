@@ -3,6 +3,10 @@
     url: https://repo.skype.com/rpm/stable/skype-stable.repo
     dest: /etc/yum.repos.d/skype-stable.repo
     mode: '0644'
+  retries: 5
+  delay: 5
+  register: download_skype_stable_repo
+  until: download_skype_stable_repo is succeeded
 
 - name: Copy google chrome repo file
   copy:
