@@ -31,7 +31,7 @@
   register: download_minikube
   until: download_minikube is succeeded
 
-- name : Install kubectl
+- name: Install kubectl
   dnf:
     name:
       - kubernetes-client
