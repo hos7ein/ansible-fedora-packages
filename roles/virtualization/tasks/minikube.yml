@@ -1,4 +1,16 @@
 ---
+- name: Check that user exists
+  shell: "grep {{ username }} /etc/passwd"
+  ignore_errors: yes
+  register: userexist
+
+- name: Adding existing user "{{ username }}" to group libvirt
+  user:
+    name: "{{ username }}"
+    groups: libvirt
+    append: yes
+  when: userexist.rc == 0
+
 - name: Install docker-machine-driver-kvm2
   get_url:
     url: https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-kvm2
@@ -30,11 +42,6 @@
     extra_opts:
       - "--add-file"
       - "kubecolor"
-
-- name: Check that user exists
-  shell: "grep {{ username }} /etc/passwd"
-  ignore_errors: yes
-  register: userexist
 
 - name: Add kubecolor to bashrc file
   lineinfile:
