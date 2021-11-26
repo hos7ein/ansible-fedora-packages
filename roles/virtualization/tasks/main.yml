@@ -21,4 +21,11 @@
   register: result
   until: result is succeeded
 
+- name: Make sure libvirtd service is running
+  systemd:
+    state: started
+    enabled: yes
+    name: libvirtd
+  when: ansible_virtualization_type != 'docker'
+
 - include: 'minikube.yml'
