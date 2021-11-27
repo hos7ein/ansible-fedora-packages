@@ -21,44 +21,16 @@
   register: result
   until: result is succeeded
 
-- name: run setup
-  shell: ansible localhost -m setup  | grep virtualization
-  register: result_setup
+- name: Check the .dockerenv file exists
+  stat:
+    path: /.dockerenv
+  register: register_dockerenv
 
-- name: Show message for result_setup
-  debug:
-    var: result_setup
-
-- name: run setup 2
-  shell: cat /proc/1/cgroup
-  register: result_setup_2
-
-- name: Show message for result_setup_2
-  debug:
-    var: result_setup_2
-
-- name: run setup 3
-  shell: ls -lha /
-  register: result_setup_3
-
-- name: Show message for result_setup_3
-  debug:
-    var: result_setup_3
-
-- name: run setup 4
-  shell: cat /proc/1/sched | head -n 1
-  register: result_setup_4
-
-- name: Show message for result_setup_4
-  debug:
-    var: result_setup_4
-
-
-#- name: Make sure libvirtd service is running
-#  systemd:
-#    state: started
-#    enabled: yes
-#    name: libvirtd
-#  when: ansible_virtualization_type != 'docker'
+- name: Make sure libvirtd service is running
+  systemd:
+    state: started
+    enabled: yes
+    name: libvirtd
+  when: not register_dockerenv.stat.exists
 
 - include: 'minikube.yml'
