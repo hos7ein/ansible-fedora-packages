@@ -21,4 +21,16 @@
   register: result
   until: result is succeeded
 
+- name: Check the .dockerenv file exists
+  stat:
+    path: /.dockerenv
+  register: register_dockerenv
+
+- name: Make sure libvirtd service is running
+  systemd:
+    state: started
+    enabled: yes
+    name: libvirtd
+  when: not register_dockerenv.stat.exists
+
 - include: 'minikube.yml'
