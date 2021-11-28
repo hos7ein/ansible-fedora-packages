@@ -39,3 +39,15 @@
   delay: 5
   register: result
   until: result is succeeded
+
+- name: Check the .dockerenv file exists
+  stat:
+    path: /.dockerenv
+  register: register_dockerenv
+
+- name: Make sure tor service is running
+  systemd:
+    state: started
+    enabled: yes
+    name: tor
+  when: not register_dockerenv.stat.exists
