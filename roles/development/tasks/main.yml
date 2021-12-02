@@ -12,6 +12,7 @@
     name:
       - code # Visual Studio Code IDE
       - git
+      - golang
     state: present
   retries: 3
   delay: 5
