@@ -1,0 +1,10 @@
+---
+- name : Install other multimedia packages
+  dnf:
+    name:
+      - simplescreenrecorder
+    state: present
+  retries: 3
+  delay: 5
+  register: result
+  until: result is succeeded
