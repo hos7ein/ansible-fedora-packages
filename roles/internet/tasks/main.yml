@@ -34,6 +34,7 @@
       - telnet
       - tcpdump
       - curl
+      - arp-scan
     state: present
   retries: 3
   delay: 5
