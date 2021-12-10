@@ -1,8 +1,3 @@
-- name: Install multimedia packages
-  include_tasks: "{{ item }}"
-  loop:
-    - codecs.yml
-    - player.yml
-    - etc.yml
-  tags:
-    - player
+- include: 'codecs.yml'
+- include: 'player.yml'
+- include: 'etc.yml'
