@@ -28,7 +28,7 @@
       - tor
       - wget
       - nethogs
-      - google-chrome
+      - google-chrome-stable
       - nmap
       - mtr
       - telnet
