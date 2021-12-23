@@ -1,9 +1,4 @@
 ---
-- name: Check that user exists
-  shell: "grep {{ username }} /etc/passwd"
-  ignore_errors: yes
-  register: userexist
-
 - name: Adding existing user "{{ username }}" to group libvirt
   user:
     name: "{{ username }}"
