@@ -21,11 +21,6 @@
   register: result
   until: result is succeeded
 
-- name: Check the .dockerenv file exists
-  stat:
-    path: /.dockerenv
-  register: register_dockerenv
-
 - name: Make sure libvirtd service is running
   systemd:
     state: started
