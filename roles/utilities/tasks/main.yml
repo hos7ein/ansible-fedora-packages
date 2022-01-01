@@ -18,3 +18,5 @@
   delay: 5
   register: result
   until: result is succeeded
+
+- include: 'sysctl.yml'
