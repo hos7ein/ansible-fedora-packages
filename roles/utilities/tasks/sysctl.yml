@@ -1,0 +1,17 @@
+- name: Increase local port range
+  sysctl:
+    name: net.ipv4.ip_local_port_range
+    value: "1024 65535"
+    sysctl_set: yes
+    state: present
+    reload: yes
+  when: not register_dockerenv.stat.exists
+
+- name: Increase somaxconn
+  sysctl:
+    name: net.core.somaxconn
+    value: "65000"
+    sysctl_set: yes
+    state: present
+    reload: yes
+  when: not register_dockerenv.stat.exists
