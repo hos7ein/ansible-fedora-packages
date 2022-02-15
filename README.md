@@ -11,7 +11,7 @@
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/hos7ein/)
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://fedorafans.com)
 
-# Table of contents
+## Table of contents
 
 * [Introduction](#introduction)
 * [Requirements](#requirements)
@@ -43,7 +43,7 @@ To deploy ansible playbook you can run this command:
 ansible-playbook main-playbook.yml
 ```
 
-# Contributing
+## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
