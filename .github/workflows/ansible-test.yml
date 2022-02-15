@@ -18,7 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Important: This sets up your GITHUB_WORKSPACE environment variable
-    - uses: actions/checkout@v2
+    - name: Check out code
+      uses: actions/checkout@v2
+
     - name: Lint Ansible Playbook
       uses: ansible/ansible-lint-action@master
       with:
@@ -31,9 +33,15 @@ jobs:
     name: markdown-lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Check out code
+      uses: actions/checkout@v2
+      
     - name: Markdown Linting Action
       uses: avto-dev/markdown-lint@v1.5.0
+      with:
+        rules: '/lint/rules/changelog.js'
+        config: '/lint/config/changelog.yml'
+        args: './README.md'
 
   job3:
     name: build
@@ -43,7 +51,8 @@ jobs:
     container:
       image: fedora:latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Check out code
+      uses: actions/checkout@v2
 
     - name: Install ansible
       run: dnf install -y ansible
