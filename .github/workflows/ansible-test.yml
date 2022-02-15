@@ -23,8 +23,8 @@ jobs:
       uses: ansible/ansible-lint-action@master
       with:
         override-deps: |
-          ansible==2.9
-          ansible-lint==4.2.0
+          ansible~=2.10
+          ansible-lint~=5.0
         targets: ""
 
   job2:
