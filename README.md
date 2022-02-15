@@ -49,9 +49,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Contact
 
-**Project website**: https://github.com/hos7ein/ansible-fedora-packages
+[Project website: "https://github.com/hos7ein/ansible-fedora-packages"]
 
-**Personal website**: https://fedorafans.com
+[Personal website: "https://fedorafans.com"]
 
 **Author**: Hossein Aghaie <hossein.a97@gmail.com>
 
