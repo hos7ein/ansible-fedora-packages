@@ -20,7 +20,7 @@
 * [Contact](#contact)
 * [License](#license)
 
-# Introduction
+## Introduction
 
 This is a Ansible playbook for installing necessary packages on Fedora Linux.
 
