@@ -12,6 +12,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://fedorafans.com)
 
 ## Table of contents
+
 * [Introduction](#introduction)
 * [Requirements](#requirements)
 * [Deploy](#Deploy)
@@ -20,6 +21,7 @@
 * [License](#license)
 
 ## Introduction
+
 This is a Ansible playbook for installing necessary packages on Fedora Linux.
 
 ## Requirements
@@ -42,13 +44,15 @@ ansible-playbook main-playbook.yml
 ```
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Pull requests are welcome. For major changes, please open an issue first to
+discuss what you would like to change.
 
 ## Contact
 
-**Project website**: https://github.com/hos7ein/ansible-fedora-packages
+[Project website: "https://github.com/hos7ein/ansible-fedora-packages"]
 
-**Personal website**: https://fedorafans.com
+[Personal website: "https://fedorafans.com"]
 
 **Author**: Hossein Aghaie <hossein.a97@gmail.com>
 
