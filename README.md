@@ -1,6 +1,6 @@
 # ansible-fedora-packages
 
-[![CI](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ansible-test.yml/badge.svg?branch=main)](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ansible-test.yml)
+[![CI](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ci.yml/badge.svg)](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ci.yml)
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/hos7ein/ansible-fedora-packages/graphs/commit-activity)
@@ -50,9 +50,9 @@ discuss what you would like to change.
 
 ## Contact
 
-[Project website: "https://github.com/hos7ein/ansible-fedora-packages"]
+Project website: https://github.com/hos7ein/ansible-fedora-packages
 
-[Personal website: "https://fedorafans.com"]
+Personal website: https://fedorafans.com
 
 **Author**: Hossein Aghaie <hossein.a97@gmail.com>
 
