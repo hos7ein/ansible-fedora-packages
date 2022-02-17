@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Important: This sets up your GITHUB_WORKSPACE environment variable
-    - name: Check out code
+    - name: Checkout source code
       uses: actions/checkout@v2
 
     - name: Lint Ansible Playbook
@@ -33,7 +33,7 @@ jobs:
     name: markdown-lint
     runs-on: ubuntu-latest
     steps:
-    - name: Check out code
+    - name: Checkout source code
       uses: actions/checkout@v2
 
     - name: Markdown Linting Action
@@ -49,7 +49,7 @@ jobs:
     container:
       image: fedora:latest
     steps:
-    - name: Check out code
+    - name: Checkout source code
       uses: actions/checkout@v2
 
     - name: Install ansible
