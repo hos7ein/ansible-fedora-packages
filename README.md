@@ -50,9 +50,9 @@ discuss what you would like to change.
 
 ## Contact
 
-Project website: https://github.com/hos7ein/ansible-fedora-packages
+[Project website: "https://github.com/hos7ein/ansible-fedora-packages"]
 
-Personal website: https://fedorafans.com
+[Personal website: "https://fedorafans.com"]
 
 **Author**: Hossein Aghaie <hossein.a97@gmail.com>
 
