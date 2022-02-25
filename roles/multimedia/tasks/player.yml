@@ -6,6 +6,8 @@
       - amarok
       - clementine
       - elisa-player
+      - goodvibes       # An Internet radio player
+      - radiotray-ng    # An Internet radio player
     state: present
   retries: 3
   delay: 5
