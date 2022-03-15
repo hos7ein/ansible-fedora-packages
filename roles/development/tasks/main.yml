@@ -12,6 +12,7 @@
     name:
       - code # Visual Studio Code IDE
       - git
+      - git-crypt
       - golang
     state: present
   retries: 3
