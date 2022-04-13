@@ -36,6 +36,13 @@
   register: result
   until: result is succeeded
 
+- name: Install cilium-cli
+  unarchive:
+    src: https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-amd64.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+    mode: 0555
+
 - name: Install kubecolor
   unarchive:
     src: https://github.com/hidetatz/kubecolor/releases/download/v0.0.20/kubecolor_0.0.20_Linux_x86_64.tar.gz
