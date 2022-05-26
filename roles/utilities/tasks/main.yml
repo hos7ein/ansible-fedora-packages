@@ -11,6 +11,7 @@
       - rsync
       - bash-completion
       - dnf-plugins-core
+      - dnf-plugin-system-upgrade
       - ImageMagick
       - ocrmypdf
     state: present
