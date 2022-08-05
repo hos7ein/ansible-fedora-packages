@@ -6,21 +6,12 @@
     append: yes
   when: userexist.rc == 0
 
-- name: Install docker-machine-driver-kvm2
-  get_url:
-    url: https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-kvm2
-    dest: /usr/local/bin/docker-machine-driver-kvm2
-    mode: '0555'
-  retries: 5
-  delay: 5
-  register: download_docker_machine_driver_kvm2
-  until: download_docker_machine_driver_kvm2 is succeeded
-
 - name: Install Minikube
-  get_url:
-    url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-    dest: /usr/local/bin/minikube
-    mode: '0555'
+  dnf:
+    name:
+      - https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm
+    disable_gpg_check: yes
+    state: present
   retries: 5
   delay: 5
   register: download_minikube
