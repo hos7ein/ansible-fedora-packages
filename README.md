@@ -27,12 +27,12 @@ This is a Ansible playbook for installing necessary packages on Fedora Linux.
 ## Requirements
 
 * Ansible
-* git
+* Git
 
-To install requirements packages, you can run this command:
+To install requirements packages you can run this command:
 
 ```bash
-dnf install ansible git
+sudo dnf install ansible git
 ```
 
 ## Deploy
