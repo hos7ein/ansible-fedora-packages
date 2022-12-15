@@ -15,7 +15,7 @@
 
 * [Introduction](#introduction)
 * [Requirements](#requirements)
-* [Deploy](#Deploy)
+* [Deploy](#deploy)
 * [Contributing](#contributing)
 * [Contact](#contact)
 * [License](#license)
