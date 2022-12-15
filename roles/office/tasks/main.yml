@@ -2,7 +2,7 @@
   dnf:
     name:
       - evince
-      - evince-nautilus
+      #- evince-nautilus
       - evince-devel
       - libreoffice-core
       - libreoffice-writer
