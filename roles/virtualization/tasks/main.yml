@@ -11,10 +11,12 @@
 - name : Install virtualization tools
   dnf:
     name:
-      - '@virtualization' # KVM virtualization tools
-      - docker-ce         # Docker CE
+      - '@virtualization'             # KVM virtualization tools
+      - docker-ce                     # Docker CE
       - docker-ce-cli
       - containerd.io
+      - VirtualBox                    # VirtualBox virtualization tool
+      - virtualbox-guest-additions    # VirtualBox Extension Pack
     state: present
   retries: 3
   delay: 5
