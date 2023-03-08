@@ -40,6 +40,12 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v2
 
+    - name: Check the Fedora version
+      run: uname -a
+
+    - name: Update Fedora
+      run: dnf update -y
+
     - name: Install ansible
       run: dnf install -y ansible
 
