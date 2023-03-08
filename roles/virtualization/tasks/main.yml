@@ -15,7 +15,7 @@
       - docker-ce                     # Docker CE
       - docker-ce-cli
       - containerd.io
-      - VirtualBox                    # VirtualBox virtualization tools
+      - VirtualBox                    # VirtualBox virtualization tool
       - virtualbox-guest-additions    # VirtualBox Extension Pack
     state: present
   retries: 3
