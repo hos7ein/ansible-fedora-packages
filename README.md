@@ -1,11 +1,11 @@
 # ansible-fedora-packages
 
 [![CI](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ci.yml/badge.svg)](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ci.yml)
-[![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/hos7ein/ansible-fedora-packages/graphs/commit-activity)
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/hos7ein/ansible-fedora-packages)
 
+[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.kernel.org/)
 ![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)
 ![Ansible](https://img.shields.io/badge/ansible-%231A1918.svg?style=for-the-badge&logo=ansible&logoColor=white)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/hos7ein/)
@@ -32,7 +32,7 @@ This is a Ansible playbook for installing necessary packages on Fedora Linux.
 To install requirements packages you can run this command:
 
 ```bash
-sudo dnf install ansible git
+dnf install ansible git
 ```
 
 ## Deploy
@@ -50,13 +50,9 @@ discuss what you would like to change.
 
 ## Contact
 
-[Project website: "https://github.com/hos7ein/ansible-fedora-packages"]
+[![Personal website](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://fedorafans.com)
 
-[Personal website: "https://fedorafans.com"]
-
-**Author**: Hossein Aghaie <hossein.a97@gmail.com>
-
-**Twitter**: Hossein Aghaie [@hos7ein](https://twitter.com/hos7ein)
+[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/hos7ein)
 
 ## License
 
