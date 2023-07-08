@@ -50,7 +50,7 @@ discuss what you would like to change.
 
 ## Contact
 
-[![Personal website](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://fedorafans.com)
+[![Personal website](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white 'fedorafans.com')](https://fedorafans.com)
 
 [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/hos7ein)
 
