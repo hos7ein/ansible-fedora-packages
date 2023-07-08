@@ -1,15 +1,15 @@
 # ansible-fedora-packages
 
-[![CI](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ci.yml/badge.svg)](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ci.yml)
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/hos7ein/ansible-fedora-packages/graphs/commit-activity)
-[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/hos7ein/ansible-fedora-packages)
+[![CI](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ci.yml/badge.svg 'CI')](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ci.yml)
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg 'GPLv3 license')](http://perso.crans.org/besson/LICENSE.html)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg 'Maintenance')](https://github.com/hos7ein/ansible-fedora-packages/graphs/commit-activity)
+[![Ask Me Anything](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg 'Ask Me Anything')](https://GitHub.com/hos7ein/ansible-fedora-packages)
 
-[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.kernel.org/)
-![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)
-![Ansible](https://img.shields.io/badge/ansible-%231A1918.svg?style=for-the-badge&logo=ansible&logoColor=white)
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/hos7ein/)
-[![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://fedorafans.com)
+[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black 'Linux')](https://www.kernel.org/)
+[![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white 'Fedora')](https://fedoraproject.org)
+[![Ansible](https://img.shields.io/badge/ansible-%231A1918.svg?style=for-the-badge&logo=ansible&logoColor=white 'Ansible')](https://www.ansible.com)
+[![Built with love](http://ForTheBadge.com/images/badges/built-with-love.svg 'Built with love')](https://GitHub.com/hos7ein)
+[![Coffee](https://forthebadge.com/images/badges/powered-by-coffee.svg 'Coffee')](https://fedorafans.com)
 
 ## Table of contents
 
@@ -50,9 +50,9 @@ discuss what you would like to change.
 
 ## Contact
 
-[![Personal website](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white 'fedorafans.com')](https://fedorafans.com)
+[![Personal website](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white 'https://fedorafans.com')](https://fedorafans.com)
 
-[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/hos7ein)
+[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white '@hos7ein')](https://twitter.com/hos7ein)
 
 ## License
 
