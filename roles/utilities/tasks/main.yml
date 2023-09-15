@@ -15,6 +15,7 @@
       - ImageMagick
       - ocrmypdf
       - dnf-utils
+      - rpmbuild-order
     state: present
   retries: 3
   delay: 5
