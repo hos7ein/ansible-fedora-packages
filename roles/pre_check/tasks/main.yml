@@ -1,7 +1,7 @@
 ---
 - name: Check that user exists
   shell: "grep {{ username }} /etc/passwd"
-  ignore_errors: yes
+  ignore_errors: true
   register: userexist
 
 ### Are we in VM or container?
