@@ -23,6 +23,13 @@
   register: result
   until: result is succeeded
 
+# Add user to group (vboxusers) that allowed VirtualBox to access USB devices.
+- name: Adding existing user '{{ username }}' to group vboxusers
+  ansible.builtin.user:
+    name: '{{ username }}'
+    groups: vboxusers
+    append: yes
+
 - name: Make sure libvirtd service is running
   systemd:
     state: started
