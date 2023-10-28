@@ -29,6 +29,7 @@
     name: '{{ username }}'
     groups: vboxusers
     append: yes
+  when: userexist.rc == 0
 
 - name: Make sure libvirtd service is running
   systemd:
