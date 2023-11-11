@@ -46,7 +46,6 @@
       - tcpdump
       - curl
       - arp-scan
-      - openfortivpn
     state: present
   retries: 3
   delay: 5
