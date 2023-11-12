@@ -22,4 +22,4 @@
   register: result
   until: result is succeeded
 
-- include: 'sysctl.yml'
+- include_tasks: 'sysctl.yml'

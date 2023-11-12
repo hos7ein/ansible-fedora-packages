@@ -38,4 +38,4 @@
     name: libvirtd
   when: not register_dockerenv.stat.exists
 
-- include: 'minikube.yml'
+- include_tasks: 'minikube.yml'
