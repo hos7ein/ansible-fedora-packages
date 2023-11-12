@@ -1,3 +1,3 @@
-- include: 'codecs.yml'
-- include: 'player.yml'
-- include: 'etc.yml'
+- include_tasks: 'codecs.yml'
+- include_tasks: 'player.yml'
+- include_tasks: 'etc.yml'
