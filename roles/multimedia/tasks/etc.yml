@@ -3,6 +3,7 @@
   dnf:
     name:
       - simplescreenrecorder
+      - audacity
     state: present
   retries: 3
   delay: 5
