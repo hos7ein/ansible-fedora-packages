@@ -3,7 +3,7 @@
     name:
       - transcode
       - lame
-      - xine-lib
+      # - xine-lib
       #- gstreamer-plugins-ugly
       #- gstreamer-ffmpeg
       - libdvdread
@@ -14,10 +14,10 @@
       - gstreamer1-plugins-base
       - gstreamer1-plugins-good
       - gstreamer1-plugins-bad-free
-      #- gstreamer1-plugins-bad-freeworld
+      - gstreamer1-plugins-bad-freeworld
       - gstreamer1-plugins-bad-free-extras
       - vcdimager
-      #- normalize
+      - normalize
       #- xine
       - gstreamer1-plugins-good-qt
       - gstreamer1-plugins-good-extras
