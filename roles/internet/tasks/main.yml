@@ -24,6 +24,7 @@
       - tcpdump
       - curl
       - arp-scan
+      - sshuttle
     state: present
   retries: 3
   delay: 5
