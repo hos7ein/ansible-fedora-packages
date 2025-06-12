@@ -8,6 +8,7 @@
       - elisa-player
       - goodvibes       # An Internet radio player
       - radiotray-ng    # An Internet radio player
+      - strawberry
     state: present
   retries: 3
   delay: 5
