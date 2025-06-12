@@ -4,6 +4,7 @@
     name:
       - simplescreenrecorder
       - audacity
+      - obs-studio
     state: present
   retries: 3
   delay: 5
