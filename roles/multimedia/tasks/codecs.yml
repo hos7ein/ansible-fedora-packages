@@ -9,7 +9,8 @@
       - libdvdread
       - libdvdnav
       - lsdvd
-      - ffmpeg-free
+      #- ffmpeg-free
+      - ffmpeg
       - xvidcore
       - gstreamer1-plugins-base
       - gstreamer1-plugins-good
@@ -22,6 +23,7 @@
       - gstreamer1-plugins-good-qt
       - gstreamer1-plugins-good-extras
       - gstreamer1-plugins-good-gtk
+      - gstreamer1-plugins-ugly
       - gstreamer1-plugins-ugly-free
       - gstreamer1-plugins-bad-free-fluidsynth
       - gstreamer1-plugins-bad-free-wildmidi
