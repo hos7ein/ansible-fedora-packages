@@ -4,7 +4,7 @@
     name: "{{ username }}"
     groups: libvirt
     append: true
-  when: userexist.rc == 0
+  when: pre_check_userexist.rc == 0
 
 - name: Install Minikube
   ansible.builtin.dnf:
@@ -47,4 +47,4 @@
   with_items:
     - alias kubectl=kubecolor
     - complete -o default -F __start_kubectl kubecolor
-  when: userexist.rc == 0
+  when: pre_check_userexist.rc == 0

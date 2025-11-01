@@ -2,7 +2,7 @@
 - name: Check that user exists
   ansible.builtin.shell: "grep {{ username }} /etc/passwd"
   ignore_errors: true
-  register: userexist
+  register: pre_check_userexist
 
 # Are we in VM or container?
 - name: Check the .dockerenv file exists

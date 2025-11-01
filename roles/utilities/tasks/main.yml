@@ -21,8 +21,8 @@
     state: present
   retries: 3
   delay: 5
-  register: utilitie_result
-  until: utilitie_result is succeeded
+  register: utilities_result
+  until: utilities_result is succeeded
 
 - name: Include sysctl tasks
   ansible.builtin.include_tasks: sysctl.yml
