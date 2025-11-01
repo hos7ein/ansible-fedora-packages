@@ -1,11 +1,11 @@
 ---
 - name: Check that user exists
-  shell: "grep {{ username }} /etc/passwd"
+  ansible.builtin.shell: "grep {{ username }} /etc/passwd"
   ignore_errors: true
   register: userexist
 
-### Are we in VM or container?
+# Are we in VM or container?
 - name: Check the .dockerenv file exists
-  stat:
+  ansible.builtin.stat:
     path: /.dockerenv
   register: pre_check_dockerenv

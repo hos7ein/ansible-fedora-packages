@@ -1,13 +1,13 @@
-- name : Install office tools
+- name: Install office tools
   ansible.builtin.dnf:
     name:
       - evince
-      #- evince-nautilus
+      # - evince-nautilus
       - evince-devel
       - libreoffice-core
       - libreoffice-writer
       - libreoffice-calc
-      #- goldendict
+      # - goldendict
     state: present
   retries: 3
   delay: 5

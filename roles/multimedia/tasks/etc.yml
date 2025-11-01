@@ -1,5 +1,5 @@
 ---
-- name : Install other multimedia packages
+- name: Install other multimedia packages
   ansible.builtin.dnf:
     name:
       - simplescreenrecorder

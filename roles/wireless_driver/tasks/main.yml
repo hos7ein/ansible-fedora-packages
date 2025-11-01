@@ -1,4 +1,4 @@
-- name : Install wireless driver
+- name: Install wireless driver
   ansible.builtin.dnf:
     name:
       - kernel-devel

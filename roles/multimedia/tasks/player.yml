@@ -1,4 +1,4 @@
-- name : Install multimedia player
+- name: Install multimedia player
   ansible.builtin.dnf:
     name:
       - smplayer

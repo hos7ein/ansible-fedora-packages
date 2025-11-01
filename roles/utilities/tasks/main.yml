@@ -1,4 +1,4 @@
-- name : Install utilitie tools
+- name: Install utilitie tools
   ansible.builtin.dnf:
     name:
       - gparted
@@ -16,10 +16,13 @@
       - ocrmypdf
       - dnf-utils
       - rpmbuild-order
+      - ansible
+      - python3-ansible-lint
     state: present
   retries: 3
   delay: 5
   register: utilitie_result
   until: utilitie_result is succeeded
 
-- include_tasks: 'sysctl.yml'
+- name: Include sysctl tasks
+  ansible.builtin.include_tasks: sysctl.yml

@@ -1,23 +1,25 @@
-- name: Check if ffmpeg-free package is installed
-  command: rpm -q ffmpeg-free
-  register: multimedia_ffmpeg_free_check
-  ignore_errors: True
+- name: Gather installed packages
+  ansible.builtin.package_facts:
+    manager: auto
 
 - name: Swap ffmpeg-free with ffmpeg if installed
-  command: dnf swap -y ffmpeg-free ffmpeg --allowerasing
-  when: multimedia_ffmpeg_free_check.rc == 0
+  ansible.builtin.command: dnf swap -y ffmpeg-free ffmpeg --allowerasing  # noqa command-instead-of-module
+  when: "'ffmpeg-free' in ansible_facts.packages"
   register: multimedia_ffmpeg_swap
   changed_when: "'Nothing to do' not in multimedia_ffmpeg_swap.stdout"
   failed_when: multimedia_ffmpeg_swap.rc != 0 and "'Nothing to do' not in multimedia_ffmpeg_swap.stdout"
+  retries: 3
+  delay: 5
+  until: multimedia_ffmpeg_swap is succeeded
 
-- name : Install codecs
+- name: Install codecs
   ansible.builtin.dnf:
     name:
       - transcode
       - lame
       # - xine-lib
-      #- gstreamer-plugins-ugly
-      #- gstreamer-ffmpeg
+      # - gstreamer-plugins-ugly
+      # - gstreamer-ffmpeg
       - libdvdread
       - libdvdnav
       - lsdvd

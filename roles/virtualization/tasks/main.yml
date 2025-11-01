@@ -1,14 +1,14 @@
 - name: Download official Docker CE repository file
-  get_url:
+  ansible.builtin.get_url:
     url: https://download.docker.com/linux/fedora/docker-ce.repo
     dest: /etc/yum.repos.d/docker-ce.repo
-    mode: '0644'
+    mode: "0644"
   retries: 5
   delay: 5
   register: virtualization_download_docker_ce_repo
   until: virtualization_download_docker_ce_repo is succeeded
 
-- name : Install virtualization tools
+- name: Install virtualization tools
   ansible.builtin.dnf:
     name:
       - '@virtualization'             # KVM virtualization tools
@@ -24,20 +24,21 @@
   until: virtualization_result is succeeded
 
 # Add user to group (vboxusers) that allowed VirtualBox to access USB devices.
-- name: Adding existing user '{{ username }}' to group vboxusers
+- name: Adding existing user to group vboxusers for user {{ username }}
   ansible.builtin.user:
     name: '{{ username }}'
     groups: vboxusers
-    append: yes
+    append: true
   when: userexist.rc == 0
 
 # - name: Make sure libvirtd service is running
 #   systemd:
 #     state: started
-#     enabled: yes
+#     enabled: true
 #     name: libvirtd
 #   when:
 #     - virtualization_result is succeeded
 #     - not pre_check_dockerenv.stat.exists
 
-- include_tasks: 'minikube.yml'
+- name: Include Minikube installation tasks
+  ansible.builtin.include_tasks: minikube.yml
