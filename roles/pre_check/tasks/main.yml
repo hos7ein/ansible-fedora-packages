@@ -8,4 +8,4 @@
 - name: Check the .dockerenv file exists
   stat:
     path: /.dockerenv
-  register: register_dockerenv
+  register: pre_check_dockerenv

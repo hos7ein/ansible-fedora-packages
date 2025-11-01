@@ -1,17 +1,17 @@
 - name: Increase local port range
-  sysctl:
+  ansible.posix.sysctl:
     name: net.ipv4.ip_local_port_range
     value: "1024 65535"
-    sysctl_set: yes
+    sysctl_set: true
     state: present
-    reload: yes
-  when: not register_dockerenv.stat.exists
+    reload: true
+  when: not pre_check_dockerenv.stat.exists
 
 - name: Increase somaxconn
-  sysctl:
+  ansible.posix.sysctl:
     name: net.core.somaxconn
     value: "65000"
-    sysctl_set: yes
+    sysctl_set: true
     state: present
-    reload: yes
-  when: not register_dockerenv.stat.exists
+    reload: true
+  when: not pre_check_dockerenv.stat.exists

@@ -38,6 +38,6 @@
 #     name: libvirtd
 #   when:
 #     - install_virtualization_result is succeeded
-#     - not register_dockerenv.stat.exists
+#     - not pre_check_dockerenv.stat.exists
 
 - include_tasks: 'minikube.yml'

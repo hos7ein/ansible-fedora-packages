@@ -36,4 +36,4 @@
     state: started
     enabled: yes
     name: tor
-  when: not register_dockerenv.stat.exists
+  when: not pre_check_dockerenv.stat.exists
