@@ -7,7 +7,7 @@
     state: present
   retries: 3
   delay: 5
-  register: result
-  until: result is succeeded
+  register: repo_result
+  until: repo_result is succeeded
   tags:
     - repo

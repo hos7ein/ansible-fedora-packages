@@ -8,7 +8,7 @@
     backup: yes
 
 - name: Install internet tools
-  dnf:
+  ansible.builtin.dnf:
     name:
       - firefox
       - qbittorrent
@@ -28,8 +28,8 @@
     state: present
   retries: 3
   delay: 5
-  register: result
-  until: result is succeeded
+  register: internet_result
+  until: internet_result is succeeded
 
 - name: Make sure tor service is running
   systemd:

@@ -7,25 +7,25 @@
   when: userexist.rc == 0
 
 - name: Install Minikube
-  dnf:
+  ansible.builtin.dnf:
     name:
       - https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm
     disable_gpg_check: yes
     state: present
   retries: 5
   delay: 5
-  register: download_minikube
-  until: download_minikube is succeeded
+  register: virtualization_download_minikube
+  until: virtualization_download_minikube is succeeded
 
 - name: Install kubectl
-  dnf:
+  ansible.builtin.dnf:
     name:
       - kubernetes-client
     state: present
   retries: 3
   delay: 5
-  register: result
-  until: result is succeeded
+  register: virtualization_kubectl_result
+  until: virtualization_kubectl_result is succeeded
 
 - name: Install kubecolor
   unarchive:

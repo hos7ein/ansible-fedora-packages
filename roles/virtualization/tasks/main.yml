@@ -5,11 +5,11 @@
     mode: '0644'
   retries: 5
   delay: 5
-  register: download_docker_ce_repo
-  until: download_docker_ce_repo is succeeded
+  register: virtualization_download_docker_ce_repo
+  until: virtualization_download_docker_ce_repo is succeeded
 
 - name : Install virtualization tools
-  dnf:
+  ansible.builtin.dnf:
     name:
       - '@virtualization'             # KVM virtualization tools
       - docker-ce                     # Docker CE
@@ -20,8 +20,8 @@
     state: present
   retries: 3
   delay: 5
-  register: install_virtualization_result
-  until: install_virtualization_result is succeeded
+  register: virtualization_result
+  until: virtualization_result is succeeded
 
 # Add user to group (vboxusers) that allowed VirtualBox to access USB devices.
 - name: Adding existing user '{{ username }}' to group vboxusers
@@ -37,7 +37,7 @@
 #     enabled: yes
 #     name: libvirtd
 #   when:
-#     - install_virtualization_result is succeeded
+#     - virtualization_result is succeeded
 #     - not pre_check_dockerenv.stat.exists
 
 - include_tasks: 'minikube.yml'

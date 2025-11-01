@@ -1,5 +1,5 @@
 - name : Install utilitie tools
-  dnf:
+  ansible.builtin.dnf:
     name:
       - gparted
       - terminator
@@ -19,7 +19,7 @@
     state: present
   retries: 3
   delay: 5
-  register: result
-  until: result is succeeded
+  register: utilitie_result
+  until: utilitie_result is succeeded
 
 - include_tasks: 'sysctl.yml'

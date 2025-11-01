@@ -1,5 +1,5 @@
 - name : Install office tools
-  dnf:
+  ansible.builtin.dnf:
     name:
       - evince
       #- evince-nautilus
@@ -11,5 +11,5 @@
     state: present
   retries: 3
   delay: 5
-  register: result
-  until: result is succeeded
+  register: office_result
+  until: office_result is succeeded

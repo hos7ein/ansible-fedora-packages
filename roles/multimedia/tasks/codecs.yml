@@ -1,17 +1,17 @@
 - name: Check if ffmpeg-free package is installed
   command: rpm -q ffmpeg-free
-  register: ffmpeg_free_check
+  register: multimedia_ffmpeg_free_check
   ignore_errors: True
 
 - name: Swap ffmpeg-free with ffmpeg if installed
   command: dnf swap -y ffmpeg-free ffmpeg --allowerasing
-  when: ffmpeg_free_check.rc == 0
-  register: ffmpeg_swap
-  changed_when: "'Nothing to do' not in ffmpeg_swap.stdout"
-  failed_when: ffmpeg_swap.rc != 0 and "'Nothing to do' not in ffmpeg_swap.stdout"
+  when: multimedia_ffmpeg_free_check.rc == 0
+  register: multimedia_ffmpeg_swap
+  changed_when: "'Nothing to do' not in multimedia_ffmpeg_swap.stdout"
+  failed_when: multimedia_ffmpeg_swap.rc != 0 and "'Nothing to do' not in multimedia_ffmpeg_swap.stdout"
 
 - name : Install codecs
-  dnf:
+  ansible.builtin.dnf:
     name:
       - transcode
       - lame
@@ -44,5 +44,5 @@
     state: present
   retries: 3
   delay: 5
-  register: result
-  until: result is succeeded
+  register: multimedia_codecs_result
+  until: multimedia_codecs_result is succeeded
