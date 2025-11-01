@@ -20,8 +20,8 @@
     state: present
   retries: 3
   delay: 5
-  register: result
-  until: result is succeeded
+  register: install_virtualization_result
+  until: install_virtualization_result is succeeded
 
 # Add user to group (vboxusers) that allowed VirtualBox to access USB devices.
 - name: Adding existing user '{{ username }}' to group vboxusers
@@ -31,11 +31,13 @@
     append: yes
   when: userexist.rc == 0
 
-- name: Make sure libvirtd service is running
-  systemd:
-    state: started
-    enabled: yes
-    name: libvirtd
-  when: not register_dockerenv.stat.exists
+# - name: Make sure libvirtd service is running
+#   systemd:
+#     state: started
+#     enabled: yes
+#     name: libvirtd
+#   when:
+#     - install_virtualization_result is succeeded
+#     - not register_dockerenv.stat.exists
 
 - include_tasks: 'minikube.yml'
