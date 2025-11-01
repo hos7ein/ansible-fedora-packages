@@ -1,20 +1,17 @@
-- name: Check if ffmpeg-free is installed
-  ansible.builtin.dnf:
-    name: ffmpeg-free
-    state: present
-  register: multimedia_ffmpeg_free_check
-  check_mode: true
+- name: Gather installed packages
+  ansible.builtin.package_facts:
+    manager: auto
+  when: pre_check_dependencies_result is succeeded
 
 - name: Swap ffmpeg-free with ffmpeg if installed
-  ansible.builtin.dnf:
-    name:
-      - ffmpeg-free
-      - ffmpeg
-    state: latest
-    allow_downgrade: true
-    autoremove: true
-  when: multimedia_ffmpeg_free_check.changed
-
+  ansible.builtin.command: dnf swap -y ffmpeg-free ffmpeg --allowerasing  # noqa command-instead-of-module
+  when: "'ffmpeg-free' in ansible_facts.packages"
+  register: multimedia_ffmpeg_swap
+  changed_when: "'Nothing to do' not in multimedia_ffmpeg_swap.stdout"
+  failed_when: multimedia_ffmpeg_swap.rc != 0 and "'Nothing to do' not in multimedia_ffmpeg_swap.stdout"
+  retries: 3
+  delay: 5
+  until: multimedia_ffmpeg_swap is succeeded
 
 - name: Install codecs
   ansible.builtin.dnf:

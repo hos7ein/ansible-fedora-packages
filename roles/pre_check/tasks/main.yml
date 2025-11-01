@@ -9,3 +9,13 @@
   ansible.builtin.stat:
     path: /.dockerenv
   register: pre_check_dockerenv
+
+- name: Install Python and dnf dependencies
+  ansible.builtin.dnf:
+    name:
+      - python3-dnf
+    state: present
+  retries: 3
+  delay: 5
+  register: pre_check_dependencies_result
+  until: pre_check_dependencies_result is succeeded
