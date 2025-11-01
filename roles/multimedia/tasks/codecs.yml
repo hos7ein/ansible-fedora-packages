@@ -1,3 +1,15 @@
+- name: Check if ffmpeg-free package is installed
+  command: rpm -q ffmpeg-free
+  register: ffmpeg_free_check
+  ignore_errors: True
+
+- name: Swap ffmpeg-free with ffmpeg if installed
+  command: dnf swap -y ffmpeg-free ffmpeg --allowerasing
+  when: ffmpeg_free_check.rc == 0
+  register: ffmpeg_swap
+  changed_when: "'Nothing to do' not in ffmpeg_swap.stdout"
+  failed_when: ffmpeg_swap.rc != 0 and "'Nothing to do' not in ffmpeg_swap.stdout"
+
 - name : Install codecs
   dnf:
     name:
@@ -9,7 +21,6 @@
       - libdvdread
       - libdvdnav
       - lsdvd
-      #- ffmpeg-free
       - ffmpeg
       - xvidcore
       - gstreamer1-plugins-base
@@ -19,7 +30,6 @@
       - gstreamer1-plugins-bad-free-extras
       - vcdimager
       - normalize
-      #- xine
       - gstreamer1-plugins-good-qt
       - gstreamer1-plugins-good-extras
       - gstreamer1-plugins-good-gtk
@@ -30,6 +40,7 @@
       - gstreamer1-plugins-bad-free-zbar
       - gstreamer1-plugin-openh264
       - gstreamer1-libav
+      - libavcodec-freeworld
     state: present
   retries: 3
   delay: 5
