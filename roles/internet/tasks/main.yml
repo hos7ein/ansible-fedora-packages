@@ -1,14 +1,14 @@
 - name: Copy google chrome repo file
-  copy:
+  ansible.builtin.copy:
     src: files/google-chrome.repo
     dest: /etc/yum.repos.d/google-chrome.repo
     owner: root
     group: root
-    mode: '0755'
-    backup: yes
+    mode: "0755"
+    backup: true
 
 - name: Install internet tools
-  dnf:
+  ansible.builtin.dnf:
     name:
       - firefox
       - qbittorrent
@@ -28,12 +28,12 @@
     state: present
   retries: 3
   delay: 5
-  register: result
-  until: result is succeeded
+  register: internet_result
+  until: internet_result is succeeded
 
 - name: Make sure tor service is running
-  systemd:
+  ansible.builtin.systemd:
     state: started
-    enabled: yes
+    enabled: true
     name: tor
-  when: not register_dockerenv.stat.exists
+  when: not pre_check_dockerenv.stat.exists

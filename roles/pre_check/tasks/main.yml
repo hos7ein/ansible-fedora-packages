@@ -1,11 +1,21 @@
 ---
 - name: Check that user exists
-  shell: "grep {{ username }} /etc/passwd"
+  ansible.builtin.shell: "grep {{ username }} /etc/passwd"
   ignore_errors: true
-  register: userexist
+  register: pre_check_userexist
 
-### Are we in VM or container?
+# Are we in VM or container?
 - name: Check the .dockerenv file exists
-  stat:
+  ansible.builtin.stat:
     path: /.dockerenv
-  register: register_dockerenv
+  register: pre_check_dockerenv
+
+- name: Install Python and dnf dependencies
+  ansible.builtin.dnf:
+    name:
+      - python3-dnf
+    state: present
+  retries: 3
+  delay: 5
+  register: pre_check_dependencies_result
+  until: pre_check_dependencies_result is succeeded

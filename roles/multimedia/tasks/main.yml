@@ -1,3 +1,8 @@
-- include_tasks: 'codecs.yml'
-- include_tasks: 'player.yml'
-- include_tasks: 'etc.yml'
+- name: Install multimedia codecs
+  ansible.builtin.include_tasks: codecs.yml
+
+- name: Install multimedia player
+  ansible.builtin.include_tasks: player.yml
+
+- name: Install other multimedia packages
+  ansible.builtin.include_tasks: etc.yml

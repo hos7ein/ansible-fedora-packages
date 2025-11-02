@@ -10,25 +10,25 @@ jobs:
     name: ansible-lint
     runs-on: ubuntu-latest
     steps:
-    # Important: This sets up your GITHUB_WORKSPACE environment variable
-    - name: Checkout source code
-      uses: actions/checkout@v2
+      # Important: This sets up your GITHUB_WORKSPACE environment variable
+      - name: Checkout source code
+        uses: actions/checkout@v2
 
-    - name: Lint Ansible Playbook
-      uses: ansible/ansible-lint-action@v6.0.1
+      - name: Lint Ansible Playbook
+        uses: ansible/ansible-lint@v25.9.2
 
   job2:
     name: markdown-lint
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout source code
-      uses: actions/checkout@v2
+      - name: Checkout source code
+        uses: actions/checkout@v2
 
-    - name: Markdown Linting Action
-      uses: avto-dev/markdown-lint@v1.5.0
-      with:
-        config: '/lint/config/changelog.yml'
-        args: './README.md'
+      - name: Markdown Linting Action
+        uses: avto-dev/markdown-lint@v1.5.0
+        with:
+          config: '/lint/config/changelog.yml'
+          args: './README.md'
 
   job3:
     name: build
@@ -36,22 +36,22 @@ jobs:
     needs: [job1, job2]
     runs-on: ubuntu-latest
     container:
-      image: fedora:42
+      image: fedora:43
     steps:
-    - name: Checkout source code
-      uses: actions/checkout@v2
+      - name: Checkout source code
+        uses: actions/checkout@v2
 
-    - name: Check the Fedora version
-      run: cat /etc/os-release
+      - name: Check the Fedora version
+        run: cat /etc/os-release
 
-    - name: Update Fedora
-      run: dnf update -y
+      - name: Update Fedora
+        run: dnf update -y
 
-    - name: Install ansible
-      run: dnf install -y ansible
+      - name: Install ansible
+        run: dnf install -y ansible
 
-    - name: What ansible version do we have
-      run: ansible --version
+      - name: What ansible version do we have
+        run: ansible --version
 
-    - name: Deploy ansible playbook
-      run: ansible-playbook main-playbook.yml
+      - name: Deploy ansible playbook
+        run: ansible-playbook main-playbook.yml

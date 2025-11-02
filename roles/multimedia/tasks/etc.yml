@@ -1,6 +1,6 @@
 ---
-- name : Install other multimedia packages
-  dnf:
+- name: Install other multimedia packages
+  ansible.builtin.dnf:
     name:
       - simplescreenrecorder
       - audacity
@@ -8,5 +8,5 @@
     state: present
   retries: 3
   delay: 5
-  register: result
-  until: result is succeeded
+  register: multimedia_result
+  until: multimedia_result is succeeded

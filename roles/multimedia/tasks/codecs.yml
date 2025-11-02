@@ -1,15 +1,29 @@
-- name : Install codecs
-  dnf:
+- name: Gather installed packages
+  ansible.builtin.package_facts:
+    manager: auto
+  when: pre_check_dependencies_result is succeeded
+
+- name: Swap ffmpeg-free with ffmpeg if installed
+  ansible.builtin.command: dnf swap -y ffmpeg-free ffmpeg --allowerasing  # noqa command-instead-of-module
+  when: "'ffmpeg-free' in ansible_facts.packages"
+  register: multimedia_ffmpeg_swap
+  changed_when: "'Nothing to do' not in multimedia_ffmpeg_swap.stdout"
+  failed_when: multimedia_ffmpeg_swap.rc != 0 and "'Nothing to do' not in multimedia_ffmpeg_swap.stdout"
+  retries: 3
+  delay: 5
+  until: multimedia_ffmpeg_swap is succeeded
+
+- name: Install codecs
+  ansible.builtin.dnf:
     name:
       - transcode
       - lame
       # - xine-lib
-      #- gstreamer-plugins-ugly
-      #- gstreamer-ffmpeg
+      # - gstreamer-plugins-ugly
+      # - gstreamer-ffmpeg
       - libdvdread
       - libdvdnav
       - lsdvd
-      #- ffmpeg-free
       - ffmpeg
       - xvidcore
       - gstreamer1-plugins-base
@@ -19,7 +33,6 @@
       - gstreamer1-plugins-bad-free-extras
       - vcdimager
       - normalize
-      #- xine
       - gstreamer1-plugins-good-qt
       - gstreamer1-plugins-good-extras
       - gstreamer1-plugins-good-gtk
@@ -30,8 +43,9 @@
       - gstreamer1-plugins-bad-free-zbar
       - gstreamer1-plugin-openh264
       - gstreamer1-libav
+      - libavcodec-freeworld
     state: present
   retries: 3
   delay: 5
-  register: result
-  until: result is succeeded
+  register: multimedia_codecs_result
+  until: multimedia_codecs_result is succeeded

@@ -1,14 +1,14 @@
 - name: Copy Visual Studio Code repo file
-  copy:
+  ansible.builtin.copy:
     src: files/vscode.repo
     dest: /etc/yum.repos.d/vscode.repo
     owner: root
     group: root
-    mode: '0755'
-    backup: yes
+    mode: "0755"
+    backup: true
 
-- name : Install development tools
-  dnf:
+- name: Install development tools
+  ansible.builtin.dnf:
     name:
       - code # Visual Studio Code IDE
       - git
@@ -18,5 +18,5 @@
     state: present
   retries: 3
   delay: 5
-  register: result
-  until: result is succeeded
+  register: development_result
+  until: development_result is succeeded

@@ -1,11 +1,12 @@
-- hosts: localhost
+- name: Main system setup playbook
+  hosts: localhost
   roles:
-  - pre_check
-  - repo
-  - multimedia
-  - internet
-  - development
-  - office
-  - virtualization
-  - utilities
-  - wireless_driver
+    - pre_check
+    - repo
+    - multimedia
+    - internet
+    - development
+    - office
+    - virtualization
+    - utilities
+    - wireless_driver

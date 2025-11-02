@@ -1,5 +1,5 @@
-- name : Install multimedia player
-  dnf:
+- name: Install multimedia player
+  ansible.builtin.dnf:
     name:
       - smplayer
       - vlc
@@ -12,5 +12,5 @@
     state: present
   retries: 3
   delay: 5
-  register: result
-  until: result is succeeded
+  register: multimedia_result
+  until: multimedia_result is succeeded
