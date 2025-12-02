@@ -15,6 +15,8 @@
       - git-crypt
       - golang
       - helm
+      - vi
+      - vim
     state: present
   retries: 3
   delay: 5
