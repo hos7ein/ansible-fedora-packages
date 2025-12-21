@@ -24,7 +24,7 @@
       - libdvdread
       - libdvdnav
       - lsdvd
-      #- ffmpeg
+      # - ffmpeg
       - xvidcore
       - gstreamer1-plugins-base
       - gstreamer1-plugins-good
