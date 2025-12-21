@@ -31,7 +31,7 @@ This is a Ansible playbook for installing necessary packages on Fedora Linux.
 To install requirements packages you can run this command:
 
 ```bash
-dnf install ansible git
+sudo dnf install ansible git
 ```
 
 ## Deploy
@@ -39,7 +39,7 @@ dnf install ansible git
 To deploy ansible playbook you can run this command:
 
 ```bash
-ansible-playbook main-playbook.yml
+sudo ansible-playbook main-playbook.yml
 ```
 
 ## Contributing
@@ -51,7 +51,7 @@ discuss what you would like to change.
 
 [![Personal website](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white 'https://fedorafans.com')](https://fedorafans.com)
 
-[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white '@hos7ein')](https://twitter.com/hos7ein)
+[![X (formerly Twitter)](https://img.shields.io/badge/X-formerly%20Twitter-black?style=for-the-badge&logo=x)](https://x.com/hos7ein)
 
 ## License
 
