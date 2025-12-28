@@ -8,7 +8,6 @@
 [![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black 'Linux')](https://www.kernel.org/)
 [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white 'Fedora')](https://fedoraproject.org)
 [![Ansible](https://img.shields.io/badge/ansible-%231A1918.svg?style=for-the-badge&logo=ansible&logoColor=white 'Ansible')](https://www.ansible.com)
-[![Made with love in Iran](https://madewithlove.now.sh/ir?heart=true&colorA=%2326a269&template=for-the-badge 'Made with love in Iran')](https://GitHub.com/hos7ein)
 
 ## Table of contents
 
