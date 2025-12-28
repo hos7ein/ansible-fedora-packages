@@ -1,8 +1,6 @@
 - name: Install wireless driver
   ansible.builtin.dnf:
     name:
-      - kernel-devel
-      - dkms
       - broadcom-wl
       - kmod-wl
       - akmod-wl
