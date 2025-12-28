@@ -18,6 +18,8 @@
       - rpmbuild-order
       - ansible
       - python3-ansible-lint
+      - kernel-devel
+      - dkms
     state: present
   retries: 3
   delay: 5
