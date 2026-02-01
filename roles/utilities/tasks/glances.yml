@@ -3,7 +3,7 @@
     name: podman.socket
     scope: user
     state: started
-    enabled: yes
+    enabled: true
   become: true
   become_user: "{{ username }}"
 
@@ -14,6 +14,10 @@
       - python3-pip
       - python3-virtualenv
     state: present
+  retries: 3
+  delay: 5
+  register: utilities_glances_result
+  until: utilities_glances_result is succeeded
 
 - name: Create Glances base directory
   ansible.builtin.file:
@@ -32,14 +36,14 @@
 - name: Upgrade pip inside virtualenv
   ansible.builtin.pip:
     name: pip
-    state: latest
+    state: present
     virtualenv: /opt/glances/venv
     virtualenv_command: "python3 -m venv"
 
 - name: Install Glances with containers support
   ansible.builtin.pip:
     name: "glances[containers]"
-    state: latest
+    state: present
     virtualenv: /opt/glances/venv
     virtualenv_command: "python3 -m venv"
 
@@ -53,9 +57,9 @@
 - name: Verify Glances installation
   ansible.builtin.command:
     cmd: "/usr/local/bin/glances --version"
-  register: glances_output
+  register: utilities_glances_output
   changed_when: false
 
 - name: Show Glances installed version
   ansible.builtin.debug:
-    msg: "✅ Glances installed successfully: {{ glances_output.stdout }}"
+    msg: "✅ Glances installed successfully: {{ utilities_glances_output.stdout }}"
