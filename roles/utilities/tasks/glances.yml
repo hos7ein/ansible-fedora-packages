@@ -1,11 +1,11 @@
-- name: Enable and start Podman rootless socket for user {{ username }}
+- name: Enable and start Podman socket
   ansible.builtin.systemd:
     name: podman.socket
-    scope: user
-    state: started
+    scope: global
+  # state: started
     enabled: true
-  become: true
-  become_user: "{{ username }}"
+  # become: true
+  # become_user: "{{ username }}"
 
 - name: Install required OS dependencies
   ansible.builtin.dnf:
