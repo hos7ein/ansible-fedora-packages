@@ -1,0 +1,61 @@
+- name: Enable and start Podman rootless socket for user {{ username }}
+  ansible.builtin.systemd:
+    name: podman.socket
+    scope: user
+    state: started
+    enabled: yes
+  become: true
+  become_user: "{{ username }}"
+
+- name: Install required OS dependencies
+  ansible.builtin.dnf:
+    name:
+      - python3
+      - python3-pip
+      - python3-virtualenv
+    state: present
+
+- name: Create Glances base directory
+  ansible.builtin.file:
+    path: /opt/glances
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: Create Python virtual environment (if not exists)
+  ansible.builtin.command:
+    cmd: "python3 -m venv /opt/glances/venv"
+  args:
+    creates: "/opt/glances/venv/bin/activate"
+
+- name: Upgrade pip inside virtualenv
+  ansible.builtin.pip:
+    name: pip
+    state: latest
+    virtualenv: /opt/glances/venv
+    virtualenv_command: "python3 -m venv"
+
+- name: Install Glances with containers support
+  ansible.builtin.pip:
+    name: "glances[containers]"
+    state: latest
+    virtualenv: /opt/glances/venv
+    virtualenv_command: "python3 -m venv"
+
+- name: Create global executable symlink
+  ansible.builtin.file:
+    src: /opt/glances/venv/bin/glances
+    dest: /usr/local/bin/glances
+    state: link
+    force: true
+
+- name: Verify Glances installation
+  ansible.builtin.command:
+    cmd: "/usr/local/bin/glances --version"
+  register: glances_output
+  changed_when: false
+
+- name: Show Glances installed version
+  ansible.builtin.debug:
+    msg: "✅ Glances installed successfully: {{ glances_output.stdout }}"

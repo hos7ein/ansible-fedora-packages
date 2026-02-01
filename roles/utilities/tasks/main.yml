@@ -6,7 +6,6 @@
       - zip
       - unzip
       - unrar
-      - glances
       - screen
       - rsync
       - bash-completion
@@ -28,3 +27,6 @@
 
 - name: Include sysctl tasks
   ansible.builtin.include_tasks: sysctl.yml
+
+- name: Include glances tasks
+  ansible.builtin.include_tasks: glances.yml
