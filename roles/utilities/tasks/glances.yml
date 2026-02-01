@@ -1,24 +1,8 @@
-# - name: Enable and start Podman socket
-#   ansible.builtin.systemd:
-#     name: podman.socket
-#     scope: global
-#     state: started
-#     enabled: true
-#   # become: true
-#   # become_user: "{{ username }}"
-
-- name: Check if podman.socket exists
-  ansible.builtin.stat:
-    path: /etc/systemd/user/sockets.target.wants/podman.socket
-  register: podman_socket
-
-- name: Enable and start Podman socket if missing
+- name: Enable and start Podman socket
   ansible.builtin.systemd:
     name: podman.socket
     scope: global
-    state: started
     enabled: true
-  when: not podman_socket.stat.exists
 
 - name: Install required OS dependencies
   ansible.builtin.dnf:
