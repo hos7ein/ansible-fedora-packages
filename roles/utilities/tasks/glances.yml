@@ -4,7 +4,7 @@
     scope: user
     state: started
     enabled: true
-  when: lookup('password', username)
+  when: pre_check_userexist.rc == 0
 
 - name: Install required OS dependencies
   ansible.builtin.dnf:
