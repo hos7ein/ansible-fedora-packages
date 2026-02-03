@@ -1,8 +1,10 @@
-- name: Enable and start Podman socket
+- name: Enable and start Podman socket for {{ username }
   ansible.builtin.systemd:
     name: podman.socket
-    scope: global
+    scope: user
+    state: started
     enabled: true
+  when: lookup('password', username)
 
 - name: Install required OS dependencies
   ansible.builtin.dnf:
