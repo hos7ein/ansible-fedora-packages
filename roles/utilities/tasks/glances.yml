@@ -1,4 +1,4 @@
-- name: Enable and start Podman socket for {{ username }
+- name: Enable and start Podman socket for {{ username }} user
   ansible.builtin.systemd:
     name: podman.socket
     scope: user
