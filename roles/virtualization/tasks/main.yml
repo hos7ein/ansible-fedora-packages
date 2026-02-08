@@ -27,7 +27,7 @@
 # Enabling the linger is required for the Podman container to be automatically started after a server reboot!
 # https://mo8it.com/blog/quadlet/#dependencies
 - name: Check if linger is already enabled for user {{ username }}
-  sansible.builtin.stat:
+  ansible.builtin.stat:
     path: "/var/lib/systemd/linger/{{ username }}"
   register: virtualization_linger_status
 
