@@ -30,3 +30,6 @@
 
 - name: Include glances tasks
   ansible.builtin.include_tasks: glances.yml
+
+- name: Include dnf tasks
+  ansible.builtin.include_tasks: dnf.yml

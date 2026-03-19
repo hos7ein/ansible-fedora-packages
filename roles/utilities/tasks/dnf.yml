@@ -1,0 +1,13 @@
+- name: Set fastestmirror
+  ansible.builtin.ini_file:
+    path: /etc/dnf/dnf.conf
+    section: main
+    option: fastestmirror
+    value: "True"
+
+- name: Set max_parallel_downloads
+  ansible.builtin.ini_file:
+    path: /etc/dnf/dnf.conf
+    section: main
+    option: max_parallel_downloads
+    value: "20"
