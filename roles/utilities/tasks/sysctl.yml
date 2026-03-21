@@ -1,4 +1,4 @@
-- name: Increase local port range
+- name: Expand kernel's local port range
   ansible.posix.sysctl:
     name: net.ipv4.ip_local_port_range
     value: "1024 65535"
@@ -7,10 +7,37 @@
     reload: true
   when: not pre_check_dockerenv.stat.exists
 
-- name: Increase somaxconn
+- name: Increase max queued TCP connections
   ansible.posix.sysctl:
     name: net.core.somaxconn
     value: "65000"
+    sysctl_set: true
+    state: present
+    reload: true
+  when: not pre_check_dockerenv.stat.exists
+
+- name: Set unprivileged port start
+  ansible.posix.sysctl:
+    name: net.ipv4.ip_unprivileged_port_start
+    value: "80"
+    sysctl_set: true
+    state: present
+    reload: true
+  when: not pre_check_dockerenv.stat.exists
+
+- name: Increase firewall connection tracking limit
+  ansible.posix.sysctl:
+    name: net.netfilter.nf_conntrack_max
+    value: "1048576"
+    sysctl_set: true
+    state: present
+    reload: true
+  when: not pre_check_dockerenv.stat.exists
+
+- name: Increase TCP established connection timeout for netfilter
+  ansible.posix.sysctl:
+    name: net.netfilter.nf_conntrack_tcp_timeout_established
+    value: "7200"
     sysctl_set: true
     state: present
     reload: true
