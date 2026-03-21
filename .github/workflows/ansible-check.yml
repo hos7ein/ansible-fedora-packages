@@ -17,7 +17,6 @@ jobs:
         uses: ansible/ansible-lint@v26.3.0
 
   ansible-build:
-    name: build
     if: ${{ always() }}
     needs: [ansible-lint]
     runs-on: ubuntu-latest
