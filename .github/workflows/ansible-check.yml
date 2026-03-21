@@ -3,7 +3,7 @@ name: Ansible
 on:
   pull_request:
     paths:
-      - "*.yml"
+      - "**.yml"
 
 jobs:
   ansible-lint:
