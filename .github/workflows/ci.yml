@@ -1,51 +1,31 @@
-name: CI
+name: ansible
 
-# Controls when the workflow will run
-# Triggers the workflow on push or pull request events but only for the main branch
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - "*.yml"
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  job1:
-    name: ansible-lint
+  ansible-lint:
     runs-on: ubuntu-latest
-    steps:
-      # Important: This sets up your GITHUB_WORKSPACE environment variable
-      - name: Checkout source code
-        uses: actions/checkout@v2
 
-      - name: Lint Ansible Playbook
-        uses: ansible/ansible-lint@v25.9.2
-
-  job2:
-    name: markdown-lint
-    runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
 
-      - name: Markdown Linting Action
-        uses: avto-dev/markdown-lint@v1.5.0
-        with:
-          config: '/lint/config/changelog.yml'
-          args: './README.md'
+      - name: Run ansible-lint
+        uses: ansible/ansible-lint@v26.3.0
 
-  job3:
+  ansible-build:
     name: build
     if: ${{ always() }}
-    needs: [job1, job2]
+    needs: [ansible-lint]
     runs-on: ubuntu-latest
     container:
       image: fedora:43
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v2
-
-      - name: Check the Fedora version
-        run: cat /etc/os-release
-
-      - name: Update Fedora
-        run: dnf update -y
+        uses: actions/checkout@v6
 
       - name: Install ansible
         run: dnf install -y ansible
