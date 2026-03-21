@@ -1,0 +1,37 @@
+name: ansible
+
+on:
+  pull_request:
+    paths:
+      - "*.yml"
+
+jobs:
+  ansible-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v6
+
+      - name: Run ansible-lint
+        uses: ansible/ansible-lint@v26.3.0
+
+  ansible-build:
+    name: build
+    if: ${{ always() }}
+    needs: [ansible-lint]
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:43
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v6
+
+      - name: Install ansible
+        run: dnf install -y ansible
+
+      - name: What ansible version do we have
+        run: ansible --version
+
+      - name: Deploy ansible playbook
+        run: ansible-playbook main-playbook.yml
