@@ -6,7 +6,7 @@ on:
       - README.md
 
 jobs:
-  markdown-linter:
+  markdown-lint:
     runs-on: ubuntu-latest
 
     steps:
