@@ -1,6 +1,6 @@
 # ansible-fedora-packages
 
-[![CI](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ci.yml/badge.svg 'CI')](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ci.yml)
+[![Markdown](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/markdown-check.yml/badge.svg 'markdown-check')](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/markdown-check.yml) [![Ansible](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ansible-check.yml/badge.svg 'ansible-check')](https://github.com/hos7ein/ansible-fedora-packages/actions/workflows/ansible-check.yml)
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg 'GPLv3 license')](http://perso.crans.org/besson/LICENSE.html)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg 'Maintenance')](https://github.com/hos7ein/ansible-fedora-packages/graphs/commit-activity)
 [![Ask Me Anything](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg 'Ask Me Anything')](https://GitHub.com/hos7ein/ansible-fedora-packages)
@@ -38,6 +38,8 @@ sudo dnf install ansible git
 To deploy ansible playbook you can run this command:
 
 ```bash
+git clone git@github.com:hos7ein/ansible-fedora-packages.git
+cd ansible-fedora-packages
 sudo ansible-playbook main-playbook.yml
 ```
 
