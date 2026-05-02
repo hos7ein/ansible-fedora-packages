@@ -21,10 +21,13 @@ jobs:
     needs: [ansible-lint]
     runs-on: ubuntu-latest
     container:
-      image: fedora:43
+      image: fedora:44
     steps:
       - name: Checkout source code
         uses: actions/checkout@v6
+
+      - name: Create test user
+        uses: useradd -m -s /bin/bash testuser
 
       - name: Install ansible
         run: dnf install -y ansible
@@ -33,4 +36,4 @@ jobs:
         run: ansible --version
 
       - name: Deploy ansible playbook
-        run: ansible-playbook main-playbook.yml
+        run: ansible-playbook main-playbook.yml -e "username=testuser"
