@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Create test user
-        uses: useradd -m -s /bin/bash testuser
+        run: useradd -m -s /bin/bash testuser
 
       - name: Install ansible
         run: dnf install -y ansible
