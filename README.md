@@ -35,7 +35,9 @@ sudo dnf install ansible git
 
 ## Deploy
 
-To deploy ansible playbook you can run this commands:
+1. Set your username in this [file](https://github.com/hos7ein/ansible-fedora-packages/blob/main/group_vars/all).
+
+1. To deploy ansible playbook you can run these commands.
 
 ```bash
 git clone https://github.com/hos7ein/ansible-fedora-packages.git
