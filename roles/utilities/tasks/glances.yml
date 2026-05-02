@@ -4,6 +4,8 @@
     scope: user
     state: started
     enabled: true
+  become: true
+  become_user: "{{ username }}"
   when: pre_check_userexist.rc == 0
 
 - name: Install required OS dependencies
