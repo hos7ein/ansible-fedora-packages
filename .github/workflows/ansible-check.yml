@@ -29,11 +29,17 @@ jobs:
       - name: Create test user
         run: useradd -m -s /bin/bash testuser
 
+      - name: get repo list 1
+        run: dnf repolist
+
       - name: Install ansible
         run: dnf install -y ansible
 
       - name: What ansible version do we have
         run: ansible --version
+
+      - name: get repo list 2
+        run: dnf repolist
 
       - name: Deploy ansible playbook
         run: ansible-playbook main-playbook.yml -e "username=testuser"
