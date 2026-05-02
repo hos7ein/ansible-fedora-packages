@@ -33,19 +33,35 @@ To install requirements packages you can run this command:
 sudo dnf install ansible git
 ```
 
-## Deploy
+## Usage
 
-1. Set your username in this [file](https://github.com/hos7ein/ansible-fedora-packages/blob/main/group_vars/all).
+Follow these steps to execute the playbook.
 
-1. To deploy ansible playbook you can run these commands.
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/hos7ein/ansible-fedora-packages.git
 ```
 
+### 2. Change the current working directory
+
 ```bash
 cd ansible-fedora-packages
 ```
+
+### 3. Set your username
+
+Before running the playbook, you must configure your username. Open the `group_vars/all` file and change the value of `username` to your system's username.
+
+For example:
+
+```yaml
+username: your-username
+```
+
+### 4. Deploy the playbook
+
+Run the playbook with sudo, as it requires root privileges to install packages.
 
 ```bash
 sudo ansible-playbook main-playbook.yml
