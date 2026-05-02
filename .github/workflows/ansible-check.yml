@@ -21,7 +21,7 @@ jobs:
     needs: [ansible-lint]
     runs-on: ubuntu-latest
     container:
-      image: fedora:43
+      image: fedora:44
     steps:
       - name: Checkout source code
         uses: actions/checkout@v6
