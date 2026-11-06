@@ -6,3 +6,6 @@
 
 - name: Install other multimedia packages
   ansible.builtin.include_tasks: etc.yml
+
+- name: Install Spotify
+  ansible.builtin.include_tasks: spotify.yml

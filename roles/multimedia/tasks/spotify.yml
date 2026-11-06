@@ -1,0 +1,50 @@
+- name: Configure Spotify repositories
+  become: true
+  block:
+    - name: Add Spotify repository
+      ansible.builtin.yum_repository:
+        name: fedora-spotify
+        file: fedora-spotify
+        description: negativo17 - Spotify
+        baseurl: "https://negativo17.org/repos/spotify/fedora-$releasever/$basearch/"
+        enabled: true
+        skip_if_unavailable: true
+        gpgcheck: true
+        gpgkey: https://negativo17.org/repos/RPM-GPG-KEY-slaanesh
+        repo_gpgcheck: false
+        metadata_expire: 6h
+
+    - name: Add Spotify source repository
+      ansible.builtin.yum_repository:
+        name: fedora-spotify-source
+        file: fedora-spotify
+        description: negativo17 - Spotify - Source
+        baseurl: "https://negativo17.org/repos/spotify/fedora-$releasever/SRPMS"
+        enabled: false
+        skip_if_unavailable: true
+        gpgcheck: true
+        gpgkey: https://negativo17.org/repos/RPM-GPG-KEY-slaanesh
+        repo_gpgcheck: false
+        metadata_expire: 6h
+
+    - name: Add Spotify debug repository
+      ansible.builtin.yum_repository:
+        name: fedora-spotify-debug
+        file: fedora-spotify
+        description: negativo17 - Spotify - Debug
+        baseurl: "https://negativo17.org/repos/spotify/fedora-$releasever/$basearch.debug/"
+        enabled: false
+        skip_if_unavailable: true
+        gpgcheck: true
+        gpgkey: https://negativo17.org/repos/RPM-GPG-KEY-slaanesh
+        repo_gpgcheck: false
+        metadata_expire: 6h
+
+    - name: Install Spotify
+      ansible.builtin.dnf:
+        name: spotify-client
+        state: present
+      retries: 3
+      delay: 5
+      register: multimedia_spotify_result
+      until: multimedia_spotify_result is succeeded
