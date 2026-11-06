@@ -9,4 +9,3 @@
 
 - name: Install Spotify
   ansible.builtin.include_tasks: spotify.yml
-
