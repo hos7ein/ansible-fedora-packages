@@ -1,0 +1,16 @@
+roles/internet/tasks/main.yml
+  h_f298eb0806ba40 1-13
+roles/development/tasks/main.yml
+  h_f298eb0806ba40 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a3c8fdd1ae40862bfe5a94d9a1326739b59cd4cd",
+  "prompts": {},
+  "humans": {
+    "h_f298eb0806ba40": {
+      "author": "hos7ein <hossein.a97@gmail.com>"
+    }
+  }
+}
