@@ -1,11 +1,15 @@
-- name: Copy Visual Studio Code repo file
-  ansible.builtin.copy:
-    src: files/vscode.repo
-    dest: /etc/yum.repos.d/vscode.repo
-    owner: root
-    group: root
-    mode: "0755"
-    backup: true
+- name: Configure Visual Studio Code repository
+  become: true
+  block:
+    - name: Add Visual Studio Code repository
+      ansible.builtin.yum_repository:
+        name: vscode
+        file: vscode
+        description: Visual Studio Code
+        baseurl: https://packages.microsoft.com/yumrepos/vscode
+        enabled: true
+        gpgcheck: true
+        gpgkey: https://packages.microsoft.com/keys/microsoft.asc
 
 - name: Install development tools
   ansible.builtin.dnf:
