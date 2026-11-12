@@ -1,11 +1,16 @@
-- name: Copy google chrome repo file
-  ansible.builtin.copy:
-    src: files/google-chrome.repo
-    dest: /etc/yum.repos.d/google-chrome.repo
-    owner: root
-    group: root
-    mode: "0755"
-    backup: true
+- name: Configure Google Chrome repository
+  become: true
+  block:
+    - name: Add Google Chrome repository
+      ansible.builtin.yum_repository:
+        name: google-chrome
+        file: google-chrome
+        description: google-chrome
+        baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64
+        skip_if_unavailable: true
+        enabled: true
+        gpgcheck: true
+        gpgkey: https://dl.google.com/linux/linux_signing_key.pub
 
 - name: Install internet tools
   ansible.builtin.dnf:
